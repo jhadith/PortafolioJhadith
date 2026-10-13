@@ -1,0 +1,342 @@
+﻿:root {
+  --rosa: #f4bfd2;
+  --texto: #49333e;
+  --acento: #873858;
+}
+
+body {
+  color: var(--texto);
+  background: white;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+a {
+  color: var(--acento);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #64213d;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 5px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  font-size: .9rem;
+}
+
+h1, h2 {
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+/* Photo without a background, frame or cropping. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  height: calc((100svh - var(--altura-nav, 65px)) * .8);
+  max-height: 100vh;
+  overflow-x: clip;
+  overflow-y: auto;
+  background: #fff9fc;
+  color: var(--texto);
+  padding: 0;
+}
+
+/* Animated pink and white waves across the entire introduction. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #fff9fc;
+  background-image: url("ondas.svg");
+  background-size: 140% 140%;
+  animation: ondas 14s ease-in-out infinite;
+}
+
+@keyframes ondas {
+  0%, 100% {
+    background-position: 10% 15%;
+  }
+
+  50% {
+    background-position: 90% 85%;
+  }
+}
+
+.hero-distribucion {
+  height: 100%;
+  max-width: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: minmax(0, 1fr);
+  align-items: center;
+}
+
+.acerca {
+  padding: 24px clamp(20px, 4vw, 72px);
+}
+
+.acerca h2 {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+.acerca p:not(.etiqueta) {
+  max-width: 370px;
+  font-size: .8rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.hero h1 {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--texto);
+}
+
+.hero .etiqueta {
+  font-size: .6rem;
+}
+
+.acerca .btn {
+  font-size: .75rem;
+  padding: 10px 19px;
+  margin-top: 19px !important;
+}
+
+.hero .etiqueta {
+  color: var(--acento);
+}
+
+.hero-identidad .etiqueta {
+  color: var(--acento);
+}
+
+.hero .btn-outline-rosa {
+  color: var(--acento);
+  border-color: var(--acento);
+}
+
+.hero .btn-outline-rosa:hover {
+  color: var(--texto);
+}
+
+.hero-perfil {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  padding: 20px 0;
+}
+
+.hero-identidad {
+  padding: 12px;
+}
+
+.etiqueta {
+  color: var(--acento);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.presentacion {
+  max-width: 490px;
+  color: #74616a;
+  line-height: 1.8;
+}
+
+.foto {
+  display: block;
+  min-height: 0;
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin-inline: auto;
+}
+
+@media (max-width: 767px) {
+  .hero-distribucion {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(200px, 1fr);
+  }
+
+  .acerca {
+    padding: 16px 24px;
+  }
+
+  .acerca h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .acerca p:not(.etiqueta) {
+    max-width: none;
+    font-size: .8rem;
+    line-height: 1.5;
+  }
+
+  .acerca .btn {
+    margin-top: 12px !important;
+  }
+
+  .hero h1 {
+    font-size: 1rem;
+  }
+
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: .9rem;
+  transition: transform .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-rosa {
+  background: var(--rosa);
+  color: var(--texto);
+  box-shadow: 0 6px 16px #87385812;
+}
+
+.btn-rosa:hover {
+  background: #eba8c0;
+  color: var(--texto);
+}
+
+.btn-outline-rosa {
+  border: 1px solid #c887a2;
+  color: var(--acento);
+}
+
+.btn-outline-rosa:hover {
+  background: #fce3ed;
+  border-color: var(--acento);
+}
+
+/* Full project images without cropping. */
+.proyecto-foto {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  background: #fff3f7;
+}
+
+.card {
+  border: 1px solid #f1dfe6;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 16px 30px #87385812;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.card-text {
+  color: #74616a;
+  font-size: .9rem;
+  line-height: 1.7;
+}
+
+.badge {
+  background: #fce8ef;
+  color: var(--acento);
+  padding: 10px 14px;
+  font-weight: 500;
+}
+
+.fondo-rosa {
+  background: #fff3f7;
+}
+
+.resumen h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.resumen .etiqueta {
+  font-size: .65rem;
+  margin-bottom: 10px;
+}
+
+#habilidades .badge {
+  background: white;
+  border: 1px solid #f1dfe6;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+#contacto .d-flex {
+  font-size: .9rem;
+}
+
+@media (min-width: 768px) {
+  #contacto {
+    border-left: 1px solid #ecc4d4;
+  }
+
+}
+
+#contacto .d-flex a {
+  border-bottom: 1px solid #ecc4d4;
+  padding-bottom: 4px;
+}
+
+footer {
+  color: #74616a;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .btn, .card {
+    transition: none;
+  }
+
+  .btn:hover, .card:hover {
+    transform: none;
+  }
+
+}
+
